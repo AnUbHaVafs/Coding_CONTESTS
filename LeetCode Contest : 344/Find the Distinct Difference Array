@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> distinctDifferenceArray(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans;
+        if(n==0)return ans;
+        for(int i=0;i<n;i++){
+            set<int> prefix;
+            set<int> suffix;
+            int n1=0,n2=0;
+            for(int j=0;j<=i;j++){
+                prefix.insert(nums[j]);
+                n1 = prefix.size();
+            }
+            for(int k=i+1;k<n;k++){
+                suffix.insert(nums[k]);
+                n2 = suffix.size();
+            }
+            ans.push_back(n1-n2);
+        }
+        return ans;
+    }
+};
