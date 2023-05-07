@@ -1,0 +1,32 @@
+class FrequencyTracker {
+public:
+    unordered_map<int,int> hash, freq;
+    FrequencyTracker() {       
+    }
+    
+    void add(int number) {
+        int prev_freq = hash[number]; hash[number]++;
+        if(prev_freq>0)freq[prev_freq]--;
+        freq[hash[number]]++;
+    }
+    
+    void deleteOne(int number) {
+        if(hash[number]>0){
+           int prev_freq= hash[number]; hash[number]--;
+           if(prev_freq>0)freq[prev_freq]--;
+            freq[hash[number]]++;
+        }
+    }
+    
+    bool hasFrequency(int frequency) {
+        return freq[frequency]?true:false;
+    }
+};
+
+/**
+ * Your FrequencyTracker object will be instantiated and called as such:
+ * FrequencyTracker* obj = new FrequencyTracker();
+ * obj->add(number);
+ * obj->deleteOne(number);
+ * bool param_3 = obj->hasFrequency(frequency);
+ */
