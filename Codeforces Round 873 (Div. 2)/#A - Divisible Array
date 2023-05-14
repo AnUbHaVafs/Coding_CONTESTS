@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+void solve(vector<int> &res, int n){
+    for(int i=0;i<n;i++){
+        res.push_back(i+1);
+    }
+    int sum = n*(n+1)/2;
+    int rem = sum%n;
+    if(rem<=0){
+        return;
+    }
+    else{
+        int i=0;
+        while(res[i] + (i+1) <= 1000 && i<n){
+            if(rem<=0)return;
+            res[i] += (i+1);
+            rem -= (i+1);
+        }
+    }
+    
+}
+ 
+void print(vector<int> &res){
+    for(int i=0;i<res.size();i++){
+        cout<<res[i]<<" ";
+    }
+    cout<<endl;
+}
+ 
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> res;
+        solve(res, n);
+        print(res);
+    }
+    return 0;
+}
