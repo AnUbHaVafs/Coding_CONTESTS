@@ -6,7 +6,7 @@ public:
         int ans = 0;
         for(int k=0;k<nums.size();k++){
             if(nums[k]==1){
-                i=k;
+                i=k; 
             }
             else if(nums[k]==nums.size()){
                 j=k;
